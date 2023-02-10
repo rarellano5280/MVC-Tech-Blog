@@ -99,7 +99,25 @@ router.get('/post/:id', (req, res) => {
       res.status(404).json({ message: 'Not able to find a post with that ID' });
       return;
     }
-  });
+
+    const post = postData.get({ plain: true })
+
+    res.render('single-post', {
+      post,
+      logged_in: req.session.logged_in
+    });
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+
+  })
+});
+
+router.get('/new', (req, res) => {
+
+
+  res.render('new-post');
 });
 
 module.exports = router;

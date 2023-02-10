@@ -13,27 +13,24 @@
 <body>
   <nav class="navbar navbar-dark bg-primary navbar-expand-lg">
     <a class="navbar-brand" href="/">Tech Blog</a>
-    <div class="container-fluid">
-      <a class="nav-item nav-link active text-light" href="/">Home <span class="sr-only">(current)</span></a>
       <!-- Conditionally render login or logout links -->
       {{#if logged_in}}
-      <a class="nav-item nav-link active text-light" href="/profile">profile</a>
-      <button class="" id="logout">logout</button>
+      <a class="nav-item nav-link active text-light" href="/">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link active text-light" href="/profile">Profile</a>
+      <a class="nav-item nav-link active text-light" href="/profile/new/">New Post</a>
+      <button  type="button" class="btn btn-light "id="logout">logout</button>
       {{else}}
+      <a class="nav-item nav-link active text-light" href="/">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link active text-light" href="/login">Login</a>
       <a class="nav-item nav-link active text-light" href="/signup">Signup</a>
       {{/if}}
-      {{#if logged_in}}
-      <h3>
-        Welcome to your blog
-        <small class="text-muted">What's on your mind</small>
-      </h3>
-      {{/if}}
-
   </nav>
-  <main class="container">
+
+  <main>
     <!-- Render the sub layout -->
     {{{ body }}}
   </main>
+
   <footer class="fixed-bottom">
     <div class="card text-center">
       <div class="card-body">
